@@ -1,43 +1,57 @@
-# **VHDL-8bit-MCU**
+# VHDL-8bit-MCU
 
-An 8bit MCU designed within VHDL.
-A self driven process allowing me to learn VHDL and develop furthur understanding about what does on inside a computer by building one myself.
+An 8-bit MCU designed in VHDL.  
+A self-driven project allowing me to learn VHDL and develop further understanding of what goes on inside a computer by building one myself.
+
+## Simulation
+
+I have been using GHDL and GTKWave to simulate this.
+
+### Process
+
+1. **Clean**
+
+   Remove any previous GHDL files:  
+   ```bash
+   ghdl --clean
+   ```
+
+2. **Compile and Analyse**
+
+   This will:
+   - Add the file to the work directory
+   - Check for syntax and dependencies  
+
+   **Ensure files are compiled in order of dependencies.**
+
+   ```bash
+   ghdl -a filename.vhd
+   ```
+
+   Do this for the testbench and all dependent files.
+
+3. **Elaborate**
+
+   Links everything together and creates an executable.  
+   Insert your testbench entity:  
+   ```bash
+   ghdl -e testbenchentity
+   ```
+
+4. **Run**
+
+   ```bash
+   ghdl -r testbenchentity --wave=sim/wavename.ghw
+   ```
+
+5. **View**
+
+   ```bash
+   gtkwave sim/wavename.ghw
+   ```
 
 
-## **Simulation**
-I have been using ghdl and gtkwave to simulate this.
-The process to use these are:
-
-1) Clean: 
-Remove any previous ghdl
-`ghdl --clean``
-
-2) Compile and Analyze:
-This will: 
-    - Add the file to the work directory 
-    - Check for syntax and dependencies
-    **Ensure files are compiled in order of dependencies**
-`ghdl -a filename.vhd` 
-
-Do this for the testbench and all dependent files
-
-3) Elaborate:
-Links everything together and creates an executable
-Insert your testbench entity
-`ghdl -e testbenchentity`
-
-4) Run:
-`ghdl -r testbenchentity --wave=sim/wavename.ghw`
-
-5) View:
-`gtkwave sim/wavename.ghw`
- 
-
-
-
-
-
-## **Tasks**
+## Tasks
 ### **Stage 0: Combinational Basics**
 1. **Gates**: `AND`, `OR`, `NOT`, `XOR`, `NAND`, `NOR`
 2. **Adders**: `HA`, `FA`
