@@ -3,6 +3,40 @@
 An 8bit MCU designed within VHDL.
 A self driven process allowing me to learn VHDL and develop furthur understanding about what does on inside a computer by building one myself.
 
+
+## **Simulation**
+I have been using ghdl and gtkwave to simulate this.
+The process to use these are:
+
+1) Clean: 
+Remove any previous ghdl
+`ghdl --clean``
+
+2) Compile and Analyze:
+This will: 
+    - Add the file to the work directory 
+    - Check for syntax and dependencies
+    **Ensure files are compiled in order of dependencies**
+`ghdl -a filename.vhd` 
+
+Do this for the testbench and all dependent files
+
+3) Elaborate:
+Links everything together and creates an executable
+Insert your testbench entity
+`ghdl -e testbenchentity`
+
+4) Run:
+`ghdl -r testbenchentity --wave=sim/wavename.ghw`
+
+5) View:
+`gtkwave sim/wavename.ghw`
+ 
+
+
+
+
+
 ## **Tasks**
 ### **Stage 0: Combinational Basics**
 1. **Gates**: `AND`, `OR`, `NOT`, `XOR`, `NAND`, `NOR`
@@ -59,3 +93,5 @@ A self driven process allowing me to learn VHDL and develop furthur understandin
 2. **Timer/Counter**
 3. **Interrupt controller (basic)**
 4. **UART**
+
+
